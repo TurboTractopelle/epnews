@@ -16,7 +16,7 @@ function template(article, vol, issue) {
 	}
 
 	if (figcaption) {
-		figure = `<figure><img src="/images/stories/hl/${vol}${issue}/${firstAuthor}.jpg" alt=""/><figcaption>${figcaption}</figcaption></figure>
+		figure = `<figure><img src="/images/stories/hl/${vol}${issue}/${firstAuthor}.jpg" alt="${title}"/><figcaption>${figcaption}</figcaption></figure>
         `;
 	}
 
