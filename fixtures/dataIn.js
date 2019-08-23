@@ -11,3 +11,5 @@ R. Chétrite, S. Gupta, I. Neri and E. Roldán, Martingale theory for housekeepi
 
 
 Caption: “Traces of fluctuating housekeeping heat (grey lines) behave like downtrend stocks. Our work investigates statistics of extrema (black arrows) against the average tendency.”`;
+
+module.exports = dataIn;

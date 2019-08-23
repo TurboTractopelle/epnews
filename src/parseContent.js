@@ -15,6 +15,7 @@ function parseContent(data) {
 	article.figcaption = parsing[3];
 
 	console.log(article);
+	return article;
 }
 
 module.exports = parseContent;
