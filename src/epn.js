@@ -1,26 +1,35 @@
-const docxParser = require("docx-parser");
 const parseContent = require("./parseContent");
-
-function parsePromise() {
-	return new Promise((res, err) => {
-		try {
-			docxParser.parseDocx(`${__dirname}/../HL/a.docx`, function(data) {
-				res(data);
-			});
-		} catch (error) {
-			err(error);
-		}
-	});
-}
+const template = require("./template");
+const parseDocx = require("./parseDocx");
+const chalk = require("chalk");
+const argv = require("yargs").options({
+	volume: {
+		alias: "v",
+		describe: `Specify the volume`,
+		type: "string"
+	},
+	issue: {
+		alias: "i",
+		describe: `Specify the issue number`,
+		type: "string"
+	}
+}).argv;
 
 async function openFile() {
 	try {
-		const data = await parsePromise();
-		console.log(data);
-		parseContent(data);
+		const data = await parseDocx();
+		const article = parseContent(data);
+		const articleHtml = template(article, argv.volume, argv.issue);
+		console.log(articleHtml);
 	} catch (error) {
-		console.log(error);
+		console.log(chalk`{red ${error}}`);
 	}
 }
 
-openFile();
+if (!argv.v || !argv.i) {
+	console.log(
+		chalk`{red.bold Error: undefined parameter} {bgBlue Use --v=VOLUME --i=ISSUE_NUMBER}`
+	);
+} else {
+	openFile();
+}

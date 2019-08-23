@@ -1,8 +1,8 @@
 function parseContent(data) {
 	const parsing = data.split("\n").filter(a => a && a !== "\r");
-	//console.log(parsing[0]);
+	//console.log(parsing);
 
-	// remove section
+	// remove section title
 	const first = parsing[0];
 	if (first === first.toUpperCase()) {
 		parsing.shift();
@@ -14,7 +14,6 @@ function parseContent(data) {
 	article.authors = parsing[2];
 	article.figcaption = parsing[3];
 
-	console.log(article);
 	return article;
 }
 
