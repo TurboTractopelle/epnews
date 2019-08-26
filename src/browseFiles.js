@@ -1,5 +1,6 @@
 const browse = require("./browse");
 const renameFolder = require("./tools/renameFolder");
+const findFile = require("./tools/findFile");
 
 async function browseFiles() {
 	return new Promise(async (res, err) => {
@@ -7,7 +8,10 @@ async function browseFiles() {
 		const files = await Promise.all([...folders.map(folder => browse(folder))]);
 
 		const outData = folders.reduce((a, k, i) => {
-			return (a = { ...a, [renameFolder(k)]: files[i] });
+			const docxFile = findFile(files[i], "docx");
+			const imgFile = findFile(files[i], "img");
+
+			return (a = { ...a, [renameFolder(k)]: { docxFile, imgFile } });
 		}, {});
 		res(outData);
 	});
