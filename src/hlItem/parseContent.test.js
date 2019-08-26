@@ -1,5 +1,5 @@
 describe("parseContent", () => {
-	const dataIn = require("../fixtures/dataIn");
+	const dataIn = require("../../fixtures/dataIn");
 	const parseContent = require("./parseContent");
 
 	it("converts the data", () => {

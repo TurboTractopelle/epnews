@@ -15,8 +15,11 @@ async function browseFiles() {
 				imgPath = folders[i] + "/" + imgFile;
 			}
 
-			return (a = { ...a, [renameFolder(k)]: { docxFile: `${folders[i]}/${docxFile}`, imgPath } });
-		}, {});
+			return (a = [
+				...a,
+				{ author: renameFolder(k), docxFile: `${folders[i]}/${docxFile}`, imgPath }
+			]);
+		}, []);
 		res(outData);
 	});
 }

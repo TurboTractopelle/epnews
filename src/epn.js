@@ -1,9 +1,10 @@
-const parseContent = require("./parseContent");
-const template = require("./template");
-const parseDocx = require("./parseDocx");
+const parseContent = require("./hlItem/parseContent");
+const template = require("./hlItem/template");
+const parseDocx = require("./hlItem/parseDocx");
 const chalk = require("chalk");
 const browseFiles = require("./browseFiles");
 const log = require("./log");
+const hls = require("./hls");
 const argv = require("yargs").options({
 	volume: {
 		alias: "v",
@@ -31,7 +32,7 @@ async function openFile(vol, issue) {
 
 async function epn() {
 	const data = await browseFiles();
-	console.log(data);
+	await hls(data);
 	return "done";
 }
 
