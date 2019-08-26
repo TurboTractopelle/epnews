@@ -10,7 +10,7 @@ async function docxProcess({ author, docxPath }, vol, issue) {
 			const completeDocxPath = path.join(__dirname, `../../HL/${docxPath}`);
 			docxParser.parseDocx(completeDocxPath, async function(data) {
 				const article = parseContent(data);
-				const articleHtml = template(article, vol, issue);
+				const articleHtml = template(article, vol, issue, author);
 				await exportContent(articleHtml, "article");
 				res(data);
 			});

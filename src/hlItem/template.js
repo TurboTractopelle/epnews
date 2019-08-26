@@ -1,22 +1,11 @@
 const removeAccents = require("remove-accents");
 
-function template(article, vol, issue) {
+function template(article, vol, issue, author) {
 	const { title, p, authors, figcaption } = article;
-	let figure, firstAuthor;
-
-	if (authors) {
-		if (authors.split(",")[0] && authors.split(",")[0].split(" ")[1]) {
-			firstAuthor = removeAccents(
-				authors
-					.split(",")[0]
-					.split(" ")[1]
-					.toLowerCase()
-			);
-		}
-	}
+	let figure;
 
 	if (figcaption) {
-		figure = `<figure><img src="/images/stories/hl/${vol}${issue}/${firstAuthor}.jpg" alt="${title}"/><figcaption>${figcaption}</figcaption></figure>
+		figure = `<figure><img src="/images/stories/hl/${vol}${issue}/${author}.jpg" alt="${title}"/><figcaption>${figcaption}</figcaption></figure>
         `;
 	}
 

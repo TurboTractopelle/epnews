@@ -4,6 +4,6 @@ const docxProcess = require("./docxProcess");
 
 async function hl(hlItem, vol, issue) {
 	console.log(chalk`{cyan Processing ${hlItem.author} HL}`);
-	return await Promise.all([imgProcess(hlItem), docxProcess(hlItem)]);
+	return Promise.all([imgProcess(hlItem), docxProcess(hlItem, vol, issue)]);
 }
 module.exports = hl;

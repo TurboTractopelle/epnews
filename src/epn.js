@@ -17,8 +17,6 @@ const argv = require("yargs").options({
 	}
 }).argv;
 
-async function openFile(vol, issue) {}
-
 async function epn(vol = 1, issue = 2) {
 	try {
 		await log(`EPN Vol. ${vol} Issue ${issue}`, "new");
