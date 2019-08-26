@@ -31,8 +31,6 @@ async function openFile(vol, issue) {
 
 async function epn() {
 	const data = await browseFiles();
-	//const imgProccessed = data.img;
-	//const docxProccessed = data.docx;
 	console.log(data);
 	return "done";
 }

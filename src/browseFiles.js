@@ -10,8 +10,12 @@ async function browseFiles() {
 		const outData = folders.reduce((a, k, i) => {
 			const docxFile = findFile(files[i], "docx");
 			const imgFile = findFile(files[i], "img");
+			let imgPath;
+			if (imgFile) {
+				imgPath = folders[i] + "/" + imgFile;
+			}
 
-			return (a = { ...a, [renameFolder(k)]: { docxFile, imgFile } });
+			return (a = { ...a, [renameFolder(k)]: { docxFile: `${folders[i]}/${docxFile}`, imgPath } });
 		}, {});
 		res(outData);
 	});
