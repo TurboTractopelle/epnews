@@ -1,9 +1,8 @@
 const parseContent = require("./hlItem/parseContent");
 const template = require("./hlItem/template");
-const parseDocx = require("./hlItem/parseDocx");
+const log = require("./log");
 const chalk = require("chalk");
 const browseFiles = require("./browseFiles");
-const log = require("./log");
 const hls = require("./hls");
 const argv = require("yargs").options({
 	volume: {
@@ -18,21 +17,16 @@ const argv = require("yargs").options({
 	}
 }).argv;
 
-async function openFile(vol, issue) {
+async function openFile(vol, issue) {}
+
+async function epn(vol = 1, issue = 2) {
 	try {
 		await log(`EPN Vol. ${vol} Issue ${issue}`, "new");
-		const data = await parseDocx();
-		const article = parseContent(data);
-		const articleHtml = template(article, vol, issue);
-		log(articleHtml, "article");
 	} catch (error) {
 		console.log(chalk`{red ${error}}`);
 	}
-}
-
-async function epn() {
 	const data = await browseFiles();
-	await hls(data);
+	await hls(data, vol, issue);
 	return "done";
 }
 

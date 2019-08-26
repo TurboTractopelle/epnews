@@ -12,8 +12,10 @@
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
+		"cp-file": "^7.0.0",
 		"docx-parser": "^0.2.1",
 		"remove-accents": "^0.4.2",
+		"sharp": "^0.23.0",
 		"yargs": "^14.0.0"
 	},
 	"devDependencies": {

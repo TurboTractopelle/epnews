@@ -4,7 +4,7 @@ function parseContent(data) {
 
 	// remove section title
 	const first = parsing[0];
-	if (first === first.toUpperCase()) {
+	if (first && first === first.toUpperCase()) {
 		parsing.shift();
 	}
 

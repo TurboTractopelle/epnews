@@ -17,7 +17,7 @@ async function browseFiles() {
 
 			return (a = [
 				...a,
-				{ author: renameFolder(k), docxFile: `${folders[i]}/${docxFile}`, imgPath }
+				{ author: renameFolder(k), docxPath: `${folders[i]}/${docxFile}`, imgPath, imgFile }
 			]);
 		}, []);
 		res(outData);
