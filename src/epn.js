@@ -1,5 +1,3 @@
-const parseContent = require("./hlItem/parseContent");
-const template = require("./hlItem/template");
 const log = require("./log");
 const chalk = require("chalk");
 const browseFiles = require("./browseFiles");

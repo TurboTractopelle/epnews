@@ -4,6 +4,7 @@ const parseContent = require("./parseContent");
 const template = require("./template");
 const exportContent = require("../log");
 const chalk = require("chalk");
+const { extractText } = require("doxtract");
 
 /**
  * @param  {Object<String, String>} data - author name and docxPath
@@ -15,14 +16,11 @@ async function docxProcess({ author, docxPath }, vol, issue) {
 	return new Promise(async (res, err) => {
 		try {
 			const completeDocxPath = path.join(__dirname, `../../HL/${docxPath}`);
-			docxParser.parseDocx(completeDocxPath, async function(data) {
-				// @ts-ignore
-				console.log(chalk`{cyan.bold ${author} - ${docxPath}} {white ${data}}`);
-				const article = parseContent(data, author);
-				const articleHtml = template(article, author, vol, issue);
-				await exportContent(articleHtml, "article");
-				res("Article processed and logged");
-			});
+			const data = await extractText(completeDocxPath);
+			const article = parseContent(data, author);
+			const articleHtml = template(article, author, vol, issue);
+			await exportContent(articleHtml, "article");
+			res("Article processed and logged");
 		} catch (error) {
 			err(error);
 		}
