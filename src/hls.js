@@ -1,4 +1,5 @@
 const hl = require("./hlItem/hlItem");
+const chalk = require("chalk");
 
 /**
  * @param  {Array<HlFiles>} data
@@ -7,6 +8,8 @@ const hl = require("./hlItem/hlItem");
  * @returns {Promise}
  */
 function hls(data, vol, issue) {
+	// @ts-ignore
+	console.log(chalk`{cyan Processing ${data.length} highlight items}`);
 	return Promise.all([...data.map(item => hl(item, vol, issue))]);
 }
 module.exports = hls;

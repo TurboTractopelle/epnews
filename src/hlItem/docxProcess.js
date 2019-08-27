@@ -4,6 +4,12 @@ const parseContent = require("./parseContent");
 const template = require("./template");
 const exportContent = require("../log");
 
+/**
+ * @param  {Object<String, String>} data - author name and docxPath
+ * @param  {Number} vol - Hl volume
+ * @param  {Number} issue - Hl issue
+ * @returns {Promise}
+ */
 async function docxProcess({ author, docxPath }, vol, issue) {
 	return new Promise(async (res, err) => {
 		try {
@@ -12,7 +18,7 @@ async function docxProcess({ author, docxPath }, vol, issue) {
 				const article = parseContent(data);
 				const articleHtml = template(article, vol, issue, author);
 				await exportContent(articleHtml, "article");
-				res(data);
+				res("Article processed and logged");
 			});
 		} catch (error) {
 			err(error);

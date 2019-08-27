@@ -25,7 +25,6 @@ async function browseFiles() {
 				{ author: renameFolder(k), docxPath: `${folders[i]}/${docxFile}`, imgPath, imgFile }
 			]);
 		}, []);
-		console.log(outData);
 		res(outData);
 	});
 }

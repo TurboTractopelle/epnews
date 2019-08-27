@@ -1,4 +1,4 @@
-const dataIn = `
+const data1 = `
 
 STATISTICAL PHYSICS
 
@@ -12,4 +12,23 @@ R. Chétrite, S. Gupta, I. Neri and E. Roldán, Martingale theory for housekeepi
 
 Caption: “Traces of fluctuating housekeeping heat (grey lines) behave like downtrend stocks. Our work investigates statistics of extrema (black arrows) against the average tendency.”`;
 
-module.exports = dataIn;
+const data2 = `
+
+MATERIALS SCIENCE
+
+Intelligent metamaterials behave like electrostatic chameleons
+
+
+Metashells can adapt their wave-bending behaviour based on the characteristics of the material they contain
+
+A chameleon can flexibly change its colour to match its surroundings. And a similar phenomenon can now be seen in a new class of smart materials called metamaterials. The trouble is that these metamaterials lack the ability to respond to nearby objects due to their physical characteristics. To remedy this shortcoming, the authors have developed so-called 'metashells': hollow shells made of metamaterials and capable of carrying materials in their core. The advantage is that their physical characteristics, such as permittivity--the extent to which a material can store charge within an electrical field--change with the electromagnetic properties of the material they contain. In a theoretical study published recently, they describe how they have developed an entire class of these chameleon-like metashells. These intelligent metashells could become an all-purpose material to satisfy different permittivity requirements under different conditions. The next stages will focus on experimental research, and on industrial applications.
+
+L. Xu and J. Huang, Electrostatic chameleons: Theory of intelligent metashells with adaptive response to inside objects, Eur. Phys. J. B 92, 53 (2019)
+
+
+Caption: “Chameleon-like behaviour.”
+
+Figure 4(a) from the original paper
+`;
+
+module.exports = { data1, data2 };
