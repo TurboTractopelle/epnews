@@ -11,8 +11,7 @@ function parseContent(data, author) {
 
 	const article = {};
 	article.title = parsing[0];
-
-	//console.log(parsing.length);
+	article.p = "";
 
 	let foundAuthors = null;
 
@@ -22,6 +21,9 @@ function parseContent(data, author) {
 			break;
 		}
 	}
+
+	console.log(parsing.length, foundAuthors);
+	console.log(parsing[foundAuthors]);
 
 	if (foundAuthors) {
 		article.authors = parsing[foundAuthors];
