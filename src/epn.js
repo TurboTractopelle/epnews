@@ -1,7 +1,7 @@
 const parseContent = require("./hlItem/parseContent");
 const template = require("./hlItem/template");
 const log = require("./log");
-const chalk = require("chalk");
+import chalk from "chalk";
 const browseFiles = require("./browseFiles");
 const hls = require("./hls");
 const argv = require("yargs").options({
@@ -17,6 +17,11 @@ const argv = require("yargs").options({
 	}
 }).argv;
 
+/**
+ * @param  {Number} vol=1
+ * @param  {Number} issue=2
+ * @returns {Promise<String>}
+ */
 async function epn(vol = 1, issue = 2) {
 	try {
 		await log(`EPN Vol. ${vol} Issue ${issue}`, "new");
