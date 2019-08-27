@@ -12,6 +12,7 @@
 	"license": "ISC",
 	"type": "module",
 	"dependencies": {
+		"@types/jest": "^24.0.18",
 		"cp-file": "^7.0.0",
 		"docx-parser": "^0.2.1",
 		"remove-accents": "^0.4.2",
