@@ -6,12 +6,12 @@ const argv = require("yargs").options({
 	volume: {
 		alias: "v",
 		describe: `Specify the volume`,
-		type: "string"
+		type: "number"
 	},
 	issue: {
 		alias: "i",
 		describe: `Specify the issue number`,
-		type: "string"
+		type: "number"
 	}
 }).argv;
 
@@ -32,15 +32,11 @@ async function epn(vol = 1, issue = 2) {
 	return "done";
 }
 
-epn();
-
-/*
 if (!argv.v || !argv.i) {
-	epn();
-
 	console.log(
+		// @ts-ignore
 		chalk`{red.bold Error: undefined parameter} {bgBlue Use --v=VOLUME --i=ISSUE_NUMBER}`
 	);
 } else {
-	epn(argv.v, argv.i);
-}*/
+	epn(argv.volume, argv.issue);
+}

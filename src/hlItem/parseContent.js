@@ -22,9 +22,6 @@ function parseContent(data, author) {
 		}
 	}
 
-	console.log(parsing.length, foundAuthors);
-	console.log(parsing[foundAuthors]);
-
 	if (foundAuthors) {
 		article.authors = parsing[foundAuthors];
 		for (let i = 2; i < foundAuthors; i++) {
