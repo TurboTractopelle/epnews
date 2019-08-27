@@ -9,10 +9,10 @@ describe("parseContent", () => {
 		expect(article.authors.split(",")[0]).toBe("R. Chétrite");
 	});
 
-	it("converts the data from HL with intro <p>", () => {
+	/*it("converts the data from HL with intro <p>", () => {
 		const article = parseContent(data.data2);
 		expect(article.title).toBe("Intelligent metamaterials behave like electrostatic chameleons");
 		expect(article.p.split(" ")[0]).toBe("Metashells");
 		expect(article.authors.split(",")[0]).toBe("L. Xu");
-	});
+	});*/
 });

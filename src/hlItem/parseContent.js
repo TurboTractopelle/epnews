@@ -1,6 +1,7 @@
-function parseContent(data) {
+const findAuthor = require("../tools/findAuthor");
+
+function parseContent(data, author) {
 	const parsing = data.split("\n").filter(a => a && a !== "\r");
-	//console.log(parsing);
 
 	// remove section title
 	const first = parsing[0];
@@ -10,9 +11,32 @@ function parseContent(data) {
 
 	const article = {};
 	article.title = parsing[0];
-	article.p = parsing[1];
-	article.authors = parsing[2];
-	article.figcaption = parsing[3];
+
+	//console.log(parsing.length);
+
+	let foundAuthors = null;
+
+	for (let i = parsing.length - 1; i > 0; i--) {
+		if (findAuthor(parsing[i], author)) {
+			foundAuthors = i;
+			break;
+		}
+	}
+
+	if (foundAuthors) {
+		article.authors = parsing[foundAuthors];
+		for (let i = 2; i < foundAuthors; i++) {
+			article.p += parsing[i];
+		}
+
+		for (let i = foundAuthors + 1; i < parsing.length; i++) {
+			article.figcaption += parsing[i];
+		}
+	} else {
+		article.p = parsing[1];
+		article.authors = parsing[2];
+		article.figcaption = parsing[3];
+	}
 
 	return article;
 }

@@ -3,6 +3,7 @@ const path = require("path");
 const parseContent = require("./parseContent");
 const template = require("./template");
 const exportContent = require("../log");
+const chalk = require("chalk");
 
 /**
  * @param  {Object<String, String>} data - author name and docxPath
@@ -15,8 +16,10 @@ async function docxProcess({ author, docxPath }, vol, issue) {
 		try {
 			const completeDocxPath = path.join(__dirname, `../../HL/${docxPath}`);
 			docxParser.parseDocx(completeDocxPath, async function(data) {
-				const article = parseContent(data);
-				const articleHtml = template(article, vol, issue, author);
+				// @ts-ignore
+				console.log(chalk`{cyan.bold ${author} - ${docxPath}} {white ${data}}`);
+				const article = parseContent(data, author);
+				const articleHtml = template(article, author, vol, issue);
 				await exportContent(articleHtml, "article");
 				res("Article processed and logged");
 			});

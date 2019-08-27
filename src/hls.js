@@ -10,6 +10,6 @@ const chalk = require("chalk");
 function hls(data, vol, issue) {
 	// @ts-ignore
 	console.log(chalk`{cyan Processing ${data.length} highlight items}`);
-	return Promise.all([...data.map(item => hl(item, vol, issue))]);
+	return Promise.all([...data.map((item, i) => hl(item, vol, issue))]);
 }
 module.exports = hls;

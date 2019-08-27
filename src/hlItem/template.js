@@ -1,6 +1,6 @@
 const removeAccents = require("remove-accents");
 
-function template(article, vol, issue, author) {
+function template(article, author, vol, issue) {
 	const { title, p, authors, figcaption } = article;
 	let figure;
 
