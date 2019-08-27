@@ -1,5 +1,10 @@
 const fs = require("fs");
 
+/**
+ * @param  {String} msg - The message to log
+ * @param  {("new"|"article")} option
+ * @returns {Promise}
+ */
 function log(msg, option) {
 	let flag = "a";
 
