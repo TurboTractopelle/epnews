@@ -1,7 +1,7 @@
 const parseContent = require("./hlItem/parseContent");
 const template = require("./hlItem/template");
 const log = require("./log");
-import chalk from "chalk";
+const chalk = require("chalk");
 const browseFiles = require("./browseFiles");
 const hls = require("./hls");
 const argv = require("yargs").options({
@@ -26,6 +26,7 @@ async function epn(vol = 1, issue = 2) {
 	try {
 		await log(`EPN Vol. ${vol} Issue ${issue}`, "new");
 	} catch (error) {
+		// @ts-ignore
 		console.log(chalk`{red ${error}}`);
 	}
 	const data = await browseFiles();
