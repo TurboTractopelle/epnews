@@ -27,9 +27,13 @@ async function epn(vol = 1, issue = 2) {
 		// @ts-ignore
 		console.log(chalk`{red ${error}}`);
 	}
-	const data = await browseFiles();
-	await hls(data, vol, issue);
-	return "done";
+	try {
+		const data = await browseFiles();
+		await hls(data, vol, issue);
+		return "done";
+	} catch (error) {
+		return error;
+	}
 }
 
 if (!argv.v || !argv.i) {

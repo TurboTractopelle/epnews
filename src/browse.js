@@ -10,6 +10,7 @@ function browse(myPath = "") {
 			if (error) {
 				err(error);
 			} else {
+				console.log(data);
 				res(data);
 			}
 		});

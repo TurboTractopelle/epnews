@@ -14,7 +14,9 @@
 	"dependencies": {
 		"@types/jest": "^24.0.18",
 		"cp-file": "^7.0.0",
+		"docx-parser": "^0.2.1",
 		"doxtract": "^1.0.13",
+		"image-size": "^0.8.1",
 		"remove-accents": "^0.4.2",
 		"sharp": "^0.23.0",
 		"yargs": "^14.0.0"

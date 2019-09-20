@@ -12,7 +12,7 @@ function template(article, author, vol, issue) {
 	const articleHtml = `${title} (Vol. ${vol}, No. ${issue})\n
 ${figure}\n
 <p>${p}</p>\n
-<p class="ref">${authors}
+<p class="ref"><b>${authors}</b>
 <br><b>[<a target="_blank" href="https://doi.org/">Abstract</a>]</b>
 </p>
    

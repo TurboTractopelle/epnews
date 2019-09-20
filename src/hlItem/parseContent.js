@@ -22,6 +22,9 @@ function parseContent(data, author) {
 		}
 	}
 
+	// TODO
+	// Fix the parsing
+
 	if (foundAuthors) {
 		article.authors = parsing[foundAuthors];
 		for (let i = 2; i < foundAuthors; i++) {

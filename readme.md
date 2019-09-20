@@ -5,6 +5,7 @@ Convert epn docx HL data to HTML
 ## Install
 
 copy all the directory/files
+remove any file in the HL folder
 
     $ npm i
 

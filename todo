@@ -1,5 +1,6 @@
-Parsing can be improved!
-- regex for multiple <p>
-- regex for <b>authors<b>
-- regex for <em>journal name</em>
-- regex for <b>volume</b>
+Parsing can be improved
+ ☐ regex for multiple <p>
+ ☐ regex for <b>authors<b>
+ ☐ regex for <em>journal name</em>
+ ☐ regex for <b>volume</b>
+
